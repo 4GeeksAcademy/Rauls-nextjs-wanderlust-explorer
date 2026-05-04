@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useMemo, useState } from "react";
+import { createContext, useCallback, useContext, useMemo, useState } from "react";
 
 interface FavoritesContextValue {
   favoriteIds: number[];
@@ -13,17 +13,17 @@ const FavoritesContext = createContext<FavoritesContextValue | undefined>(undefi
 export function FavoritesProvider({ children }: { children: React.ReactNode }) {
   const [favoriteIds, setFavoriteIds] = useState<number[]>([]);
 
-  const toggleFavorite = (id: number) => {
+  const toggleFavorite = useCallback((id: number) => {
     setFavoriteIds((prev) =>
       prev.includes(id) ? prev.filter((favId) => favId !== id) : [...prev, id],
     );
-  };
+  }, []);
 
-  const isFavorite = (id: number) => favoriteIds.includes(id);
+  const isFavorite = useCallback((id: number) => favoriteIds.includes(id), [favoriteIds]);
 
   const value = useMemo(
     () => ({ favoriteIds, toggleFavorite, isFavorite }),
-    [favoriteIds],
+    [favoriteIds, isFavorite, toggleFavorite],
   );
 
   return <FavoritesContext.Provider value={value}>{children}</FavoritesContext.Provider>;
