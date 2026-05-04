@@ -12,8 +12,8 @@ export default function FavoritesPage() {
   return (
     <main className="mx-auto w-full max-w-6xl space-y-6 px-4 py-8 sm:px-6">
       <section className="space-y-2">
-        <h1 className="text-3xl font-bold tracking-tight text-slate-900">Your Favorites</h1>
-        <p className="text-slate-600">Saved experiences in this session: {favoriteIds.length}</p>
+        <h1 className="text-3xl font-bold tracking-tight text-white">Your Favorites</h1>
+        <p className="text-gray-200">Saved experiences in this session: {favoriteIds.length}</p>
       </section>
 
       {favoriteExperiences.length === 0 ? (

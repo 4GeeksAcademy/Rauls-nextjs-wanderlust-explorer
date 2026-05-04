@@ -80,8 +80,8 @@ export default function ExperiencesClient() {
   return (
     <main className="mx-auto w-full max-w-6xl space-y-6 px-4 py-8 sm:px-6">
       <section className="space-y-2">
-        <h1 className="text-3xl font-bold tracking-tight text-slate-900">Explore Experiences</h1>
-        <p className="text-slate-600">
+        <h1 className="text-3xl font-bold tracking-tight text-white">Explore Experiences</h1>
+        <p className="text-gray-200">
           Search by title and refine by category and destination.
         </p>
       </section>
